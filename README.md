@@ -6,4 +6,5 @@ Codelab Modifier とプロパティについて学習
 
 | 実装完了時のイメージ |
 |--------|
-|<img src="https://github.com/yanPWA/ComposeQuadrant/assets/82929509/fdaab999-e204-4659-b380-7f755b98229b" width="200px"/>|
+|<img src="https://github.com/yanPWA/ComposeQuadrant/assets/82929509/a8374f94-d02e-42fb-98af-3c552becdcfd" width="200px"/>|
+
