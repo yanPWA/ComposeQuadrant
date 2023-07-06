@@ -24,34 +24,33 @@ import androidx.compose.ui.unit.dp
 @Preview("ComposeQuadrantScreen")
 @Composable
 fun ComposeQuadrantScreen() {
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        ComposeQuadrantScreenUpperPart()
-        ComposeQuadrantScreenLowerPart()
+    Column {
+        ComposeQuadrantScreenUpperPart(Modifier.weight(1f))
+        ComposeQuadrantScreenLowerPart(Modifier.weight(1f))
     }
 }
 
 /**
  * 画面上半分
  */
-@Preview("ComposeQuadrantScreenUpperPart")
 @Composable
-fun ComposeQuadrantScreenUpperPart() {
+fun ComposeQuadrantScreenUpperPart(modifier: Modifier) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxSize()
     ) {
         Card(
             color = Color.Green,
             textTitle = stringResource(R.string.green_text_title),
             textBody = stringResource(
                 R.string.green_text_body
-            )
+            ),
+            modifier = Modifier.weight(1f)
         )
         Card(
             color = Color.Yellow,
             textTitle = stringResource(R.string.yellow_text_title),
-            textBody = stringResource(R.string.yellow_text_body)
+            textBody = stringResource(R.string.yellow_text_body),
+            modifier = Modifier.weight(1f)
         )
     }
 }
@@ -60,19 +59,21 @@ fun ComposeQuadrantScreenUpperPart() {
  * 画面下半分
  */
 @Composable
-fun ComposeQuadrantScreenLowerPart() {
+fun ComposeQuadrantScreenLowerPart(modifier: Modifier) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxSize()
     ) {
         Card(
             color = Color.Cyan,
             textTitle = stringResource(R.string.cyan_text_title),
-            textBody = stringResource(R.string.cyan_text_body)
+            textBody = stringResource(R.string.cyan_text_body),
+            modifier = Modifier.weight(1f)
         )
         Card(
             color = Color.LightGray,
             textTitle = stringResource(R.string.lightgray_text_title),
-            textBody = stringResource(R.string.lightgray_text_body)
+            textBody = stringResource(R.string.lightgray_text_body),
+            modifier = Modifier.weight(1f)
         )
     }
 
@@ -88,12 +89,8 @@ fun Card(
     textTitle: String,
     textBody: String,
 ) {
-    val screenHeight = LocalConfiguration.current.screenHeightDp / 2
-    val screenWidth = LocalConfiguration.current.screenWidthDp / 2
     Box(
-        modifier = modifier
-            .height(screenHeight.dp)
-            .width(screenWidth.dp)
+        modifier = modifier.fillMaxSize()
             .background(color)
             .padding(16.dp),
         contentAlignment = Alignment.Center
@@ -114,8 +111,10 @@ fun Card(
 fun CardPreview() {
     Card(
         color = Color.Green,
-        textTitle = "Text composable",
-        textBody = "Displays text and follows Material Design guidelines."
+        textTitle = stringResource(R.string.green_text_title),
+        textBody = stringResource(
+            R.string.green_text_body
+        )
     )
 }
 
